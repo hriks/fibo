@@ -10,6 +10,10 @@ class Fibonacci(models.Model):
     runtime = models.FloatField(default=0.0)
     created = models.DateTimeField(auto_now_add=True)
 
+    def save(self, *args, **kwargs):
+        self.series = self.calculate_fibonnaci_series()
+        super(Fibonacci, self).save(*args, **kwargs)
+
     @property
     def fibonacci_series(self):
         return map(int, self.series.split(','))
@@ -21,4 +25,5 @@ class Fibonacci(models.Model):
         for f in range(2, self.number):
             fibs.append(fibs[-1] + fibs[-2])
         self.runtime = timeit.default_timer() - start
-        return "".join(map(str, fibs))
+        print self.runtime
+        return ",".join(map(str, fibs))

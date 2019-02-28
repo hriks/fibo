@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home - Fibonnaci</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+		<link rel="stylesheet" href="/static/css/index.css">
+	</head>
+	<body>
+		<div class="row breadcum">
+			<div class="col-sm-5 fibo-title">Fibonnaci</div>
+		</div>
+		<div class="row fibo-base-body">
+			<div class="col-sm-12">
+				<div class="row base-index">
+					<div class="col-sm-3">
+						<div class="base-card">
+							<p class="login_btn_p">
+								<label>Enter number</label>
+								{% csrf_token %}
+								<input type="number" id="number" class="form-control" required >
+							</p>
+							<p class="login_btn_p"><button type="submit" id="base_btn" onclick="get_series()">Get</button></p>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<table class="table">
+							<thead>
+								<th>Number</th>
+								<th>Series</th>
+								<th>Runtime</th>
+								<th>Created</th>
+							</thead>
+							<tbody id="data_S">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/static/js/index.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>

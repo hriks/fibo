@@ -6,7 +6,7 @@ from fibo.settings import MEDIA_URL, MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include('core.urls')),
+    url(r'^', include('core.urls')),
 ] + static(
     MEDIA_URL, document_root=MEDIA_ROOT
 )
